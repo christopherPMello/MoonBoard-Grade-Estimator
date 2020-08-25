@@ -1,0 +1,73 @@
+.Home-header-sharma {
+  height: 100vh;
+  min-height: 100px;
+  background-size: cover;
+  background-image: url("../helpers/Chris_Sharma.jpg");
+  transition-timing-function: ease-out;
+  filter: grayscale(100%);
+  opacity: 0.75;
+  -webkit-animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  -ms-animation: fadein 2s;
+  -o-animation: fadein 2s;
+  animation: fadein 2s;
+}
+@keyframes fadein {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 0.75;
+  }
+}
+.Home-header-fade-out {
+  visibility: hidden;
+  opacity: 0.25;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+.Home-board-fade-out {
+  opacity: 0.00001;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+.Home-board-fade-in {
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+.Home-arrow-hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+.Home-arrow-position {
+  position: relative;
+  bottom: 100px;
+}
+.Home-arrow-body {
+  background: 2d2d37;
+}
+.Home-arrow-a {
+  color: white;
+  text-decoration: none;
+}
+.Home-arrow {
+  text-align: center;
+}
+.Home-bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}

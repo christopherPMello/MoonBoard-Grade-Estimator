@@ -1,0 +1,9 @@
+.navbar-light .navbar-nav .nav-link:hover {
+  opacity: 0.5;
+}
+.nav-item {
+  display: inline-block;
+}
+.navbar-nav {
+  white-space: nowrap;
+}
