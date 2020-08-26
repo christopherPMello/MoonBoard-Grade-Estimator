@@ -41,7 +41,6 @@
   position: relative;
   z-index: 2;
 }
-
 .About-header .About-overlay {
   position: absolute;
   top: 0;
@@ -54,9 +53,26 @@
 }
 .About-hand {
   color: white;
+  text-align: center;
 }
 .About-hand-col {
   text-align: center;
-  padding-top: 100px;
+  padding-top: 200px;
   padding-bottom: 25px;
+}
+.About-mb-img {
+  text-align: center;
+  width: 550px;
+  height: auto;
+}
+.About-col {
+  text-align: center;
+  padding-bottom: 25px;
+}
+.About-ul {
+  text-align: center;
+  list-style-position: inside;
+  color: white;
+  display: inline-block;
+  text-align: left;
 }

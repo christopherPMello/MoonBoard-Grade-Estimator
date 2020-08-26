@@ -1,27 +1,3 @@
-/* .padded-elem {
-  display: inline-block;
-  width: 650px;
-  height: 50px;
-}
-.MoonBoard-badge {
-  font-size: 15px;
-  height: 30px;
-  margin-bottom: 15px;
-}
-.MoonBoard-footer {
-  padding-right: 55px;
-}
-.MoonBoard-board {
-  padding-left: 100px;
-}
-.MoonBoard-another {
-  margin-top: 15px;
-  text-align: center;
-}
-.home-hidden-spacer {
-  height: 56px;
-} */
-
 .Board-center {
   margin-bottom: 12px;
   border: 12px solid;

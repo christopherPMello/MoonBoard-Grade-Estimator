@@ -51,10 +51,7 @@ class Board extends Component {
       newColor = "blue"
       this.setState((prev) => ({ finalHold: prev.finalHold - 1 }))
     } else if (currentColor === "green") {
-      this.setState((prev) => ({
-        startHold: prev.startHold + 1,
-        footHold: prev.footHold - 1,
-      }))
+      this.setState((prev) => ({ footHold: prev.footHold - 1 }))
       newColor = "blue"
     } else if (currentColor === "blue") {
       if (area.row <= 6) {
@@ -78,10 +75,9 @@ class Board extends Component {
           this.setState((prev) => ({
             finalHold: prev.footHold + 1,
             hold: prev.hold + 1,
+            startHold: prev.startHold + 1,
           }))
           return newColor
-        } else {
-          this.setState((prev) => ({ startHold: prev.startHold + 1 }))
         }
       }
       newColor = "blue"
