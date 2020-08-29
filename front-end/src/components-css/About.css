@@ -57,12 +57,24 @@
 }
 .About-hand-col {
   text-align: center;
-  padding-top: 200px;
+}
+.About-pd-top {
+  padding-top: 500px;
+}
+.About-pd-bot {
   padding-bottom: 25px;
+}
+.row {
+  margin-right: 0 !important;
 }
 .About-mb-img {
   text-align: center;
-  width: 550px;
+  width: 50%;
+  height: auto;
+}
+.About-mb-img-small {
+  text-align: center;
+  width: 65%;
   height: auto;
 }
 .About-col {
@@ -72,7 +84,31 @@
 .About-ul {
   text-align: center;
   list-style-position: inside;
-  color: white;
+  color: black;
   display: inline-block;
-  text-align: left;
+}
+.About-card {
+  width: 25rem;
+  height: auto;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  background-color: rgba(60, 60, 60, 0.5);
+}
+.About-definition-help {
+  cursor: help;
+}
+.About-hover-info {
+  font-size: 12px;
+}
+.About-card-text {
+  text-align: center;
+  opacity: 1;
+  color: white;
+}
+.About-fade-in {
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+.About-invis {
+  opacity: 0;
 }

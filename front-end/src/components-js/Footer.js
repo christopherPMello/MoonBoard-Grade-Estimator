@@ -26,8 +26,8 @@ const Footer = (props) => {
           About
         </Link>{" "}
         |{" "}
-        <Link onClick={scrollTopGuard} className="mx-1 text-light" to="/">
-          Log-in
+        <Link onClick={scrollTopGuard} className="mx-1 text-light" to="/login">
+          Login
         </Link>
       </p>
       <p className="m-0 text-light">

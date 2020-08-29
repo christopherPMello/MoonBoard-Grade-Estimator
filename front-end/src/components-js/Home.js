@@ -9,34 +9,10 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      prevScrollpos: window.pageYOffset,
-      visible: true,
-      b_visible: false,
+      visible: false,
     }
-    window.addEventListener("scroll", this.handleScroll)
   }
 
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll)
-  }
-
-  boardInSight = (visible) => {
-    this.setState((prev) => ({
-      b_visible: !prev.b_visible,
-    }))
-  }
-
-  handleScroll = () => {
-    const { prevScrollpos } = this.state
-
-    const currentScrollPos = window.pageYOffset
-    const visible = prevScrollpos > currentScrollPos
-
-    this.setState({
-      prevScrollpos: currentScrollPos,
-      visible,
-    })
-  }
   render() {
     return (
       <>
@@ -48,9 +24,15 @@ class Home extends Component {
             <div className="fa fa-arrow-down fa-2x" href="/" />
           </div>
         </div>
-        <div className={this.state.b_visible ? "Home-board-fade-out" : "Home-board-fade-in"}>
+        <div className={this.state.visible ? "Home-board-fade-out" : "Home-board-fade-in"}>
           <Page title="Home">
-            <VizSensor onChange={this.boardInSight} partialVisibility={true} minTopValue={100}>
+            <VizSensor
+              onChange={() => {
+                this.setState((prev) => ({ visible: !prev.visible }))
+              }}
+              partialVisibility={true}
+              minTopValue={100}
+            >
               <Board />
             </VizSensor>
           </Page>

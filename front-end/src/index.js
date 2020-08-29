@@ -7,6 +7,7 @@ import Footer from "./components-js/Footer"
 import About from "./components-js/About"
 import Home from "./components-js/Home"
 import Login from "./components-js/Login"
+import Signup from "./components-js/Sign-up"
 import "./index.css"
 
 const App = () => {
@@ -20,8 +21,11 @@ const App = () => {
         <Route path="/about">
           <About />
         </Route>
-        <Route path="/Login">
+        <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/sign-up">
+          <Signup />
         </Route>
       </Switch>
       <Footer />

@@ -3,7 +3,7 @@ import ImageMapper from "react-image-mapper"
 
 import "../components-css/Board.css"
 
-import { moonMap } from "../helpers/MoonboardCoords"
+import { moonMap } from "../attachments/MoonboardCoords"
 import moon from "../helpers/moonboard.png"
 
 import AlertBadge from "./AlertBadge"
@@ -24,7 +24,17 @@ class Board extends Component {
       alertBadgeMessage: "Create. Submit. Be disappointed",
       grade: null,
       showGrade: false,
+      windowWidth: window.innerWidth,
     }
+    window.addEventListener("resize", this.handleResize)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize)
+  }
+
+  handleResize = (e) => {
+    this.setState({ windowWidth: window.innerWidth })
   }
 
   updateAlertBadge = (info) => {
@@ -100,10 +110,10 @@ class Board extends Component {
   render() {
     return (
       <>
-        <div>
+        <div className="mb">
           <AlertBadge className="col-md-6" updateAlertBadge={this.updateAlertBadge} alertBadgeMessage={this.state.alertBadgeMessage} alert={this.state.alert} alertBadgeColor={this.state.alertBadgeColor} />
           <div className="Board-center">
-            <ImageMapper className="MoonBoard-img center col-md-6" src={moon} map={moonMap} onClick={(area) => this.circle(area)} />
+            <ImageMapper className="MoonBoard-img center col-md-6" src={moon} map={moonMap} onClick={(area) => this.circle(area)} width={this.state.windowWidth >= 850 ? this.state.windowWidth * 0.5 : this.state.windowWidth * 0.85} imgWidth={650} />
           </div>
           <Submit className="col-md-6" updateAlertBadge={this.updateAlertBadge} board={this.state.board} startHold={this.state.startHold} hold={this.state.hold} footHold={this.state.footHold} finalHold={this.state.finalHold} />
         </div>
