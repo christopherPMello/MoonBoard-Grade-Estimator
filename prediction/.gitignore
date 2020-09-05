@@ -22,6 +22,7 @@ yarn-error.log*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
+.ipynb_checkpoints
 *.py[cod]
 
 # C extensions
