@@ -2,7 +2,7 @@
   height: 100vh;
   min-height: 100px;
   background-size: cover;
-  background-image: url("../helpers/Chris_Sharma.jpg");
+  background-image: url("../attachments/Chris_Sharma.jpg");
   transition-timing-function: ease-out;
   filter: grayscale(100%);
   opacity: 0.75;

@@ -4,7 +4,7 @@ import VizSensor from "react-visibility-sensor"
 import Page from "./Page"
 
 import Foggy from "../attachments/Foggy_Mountain.mp4"
-import MB_Diagram from "../helpers/moonboard_diagram.png"
+import MB_Diagram from "../attachments/moonboard_diagram.png"
 
 import "../components-css/About.css"
 
@@ -16,7 +16,7 @@ class About extends Component {
       colorVisible: true,
       rulesVisible: true,
       estimateVisible: true,
-      aboutVisible: true,
+      aboutVisible: false,
     }
     window.addEventListener("resize", this.handleResize)
   }
@@ -145,6 +145,7 @@ class About extends Component {
                 </div>
               </VizSensor>
             </div>
+
             <div className="About-pd-top"></div>
             <div className={this.state.aboutVisible ? "About-fade-in" : "About-invis"}>
               <VizSensor
@@ -157,14 +158,14 @@ class About extends Component {
                 <div>
                   <div className="row">
                     <div className="col About-hand-col">
-                      <h1 className="About-hand">About</h1>
+                      <h1 className="About-hand">Estimation Process</h1>
                       <i className="col About-hand far fa-grin fa-7x"></i>
                     </div>
                   </div>
 
                   <div className="About-card card">
                     <div className="card-body About-card-text">
-                      <p className="About-card-text">Bordeom</p>
+                      <p className="About-card-text">The estimation process is determined by a convolutional nueral netork details..........</p>
                     </div>
                   </div>
                 </div>

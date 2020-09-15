@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import * as THREE from "three"
-import moon from "../helpers/moon.jpg"
+import moon from "../attachments/moon.jpg"
 
 const Logo = () => {
   useEffect(() => {

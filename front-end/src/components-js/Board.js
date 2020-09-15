@@ -4,7 +4,7 @@ import ImageMapper from "react-image-mapper"
 import "../components-css/Board.css"
 
 import { moonMap } from "../attachments/MoonboardCoords"
-import moon from "../helpers/moonboard.png"
+import moon from "../attachments/moonboard.png"
 
 import AlertBadge from "./AlertBadge"
 import Submit from "./Submit"

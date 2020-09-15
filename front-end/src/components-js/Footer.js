@@ -25,10 +25,10 @@ const Footer = (props) => {
         <Link onClick={scrollTopGuard} className="mx-1 text-light" to="/about">
           About
         </Link>{" "}
-        |{" "}
+        {/* |{" "}
         <Link onClick={scrollTopGuard} className="mx-1 text-light" to="/login">
           Login
-        </Link>
+        </Link> */}
       </p>
       <p className="m-0 text-light">
         <Link onClick={scrollTopGuard} to="/" className="text-light">
