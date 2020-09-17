@@ -21,12 +21,13 @@ class Board extends Component {
       reloadStatus: false,
       alert: false,
       alertBadgeColor: "dark",
-      alertBadgeMessage: "Create. Submit. Be disappointed",
+      alertBadgeMessage: "Create a route then submit!",
       grade: null,
       showGrade: false,
       windowWidth: window.innerWidth,
     }
     window.addEventListener("resize", this.handleResize)
+    window.scrollTo(0, 0)
   }
 
   componentWillUnmount() {
@@ -35,6 +36,27 @@ class Board extends Component {
 
   handleResize = (e) => {
     this.setState({ windowWidth: window.innerWidth })
+  }
+
+  refreshMoonBoard = () => {
+    let newMap = this.state.board
+    newMap.areas.forEach((a) => {
+      a.strokeColor = "transparent"
+    })
+
+    this.setState((prev) => ({
+      board: newMap,
+      hold: 0,
+      finalHold: 0,
+      footHold: 0,
+      startHold: 0,
+      reloadStatus: false,
+      alert: false,
+      alertBadgeColor: "dark",
+      alertBadgeMessage: "Create -> Submit",
+      grade: null,
+      showGrade: false,
+    }))
   }
 
   updateAlertBadge = (info) => {
@@ -52,7 +74,7 @@ class Board extends Component {
 
     // Check if the maximum of holds have been reached
     if (this.state.hold >= 14 && currentColor === "transparent") {
-      // alertBadgeChange("There is a maximum of 14 holds per route.")
+      // alertBadgeChange('There is a maximum of 14 holds per route.')
       return currentColor
     }
 
@@ -83,12 +105,15 @@ class Board extends Component {
         if (this.state.footHold < 2) {
           newColor = "green"
           this.setState((prev) => ({
-            finalHold: prev.footHold + 1,
+            footHold: prev.footHold + 1,
             hold: prev.hold + 1,
             startHold: prev.startHold + 1,
           }))
           return newColor
         }
+        this.setState((prev) => ({
+          startHold: prev.startHold + 1,
+        }))
       }
       newColor = "blue"
       this.setState((prev) => ({ hold: prev.hold + 1 }))
@@ -115,7 +140,16 @@ class Board extends Component {
           <div className="Board-center">
             <ImageMapper className="MoonBoard-img center col-md-6" src={moon} map={moonMap} onClick={(area) => this.circle(area)} width={this.state.windowWidth >= 850 ? this.state.windowWidth * 0.5 : this.state.windowWidth * 0.85} imgWidth={650} />
           </div>
-          <Submit className="col-md-6" updateAlertBadge={this.updateAlertBadge} board={this.state.board} startHold={this.state.startHold} hold={this.state.hold} footHold={this.state.footHold} finalHold={this.state.finalHold} />
+          <Submit
+            className="col-md-6"
+            refreshMoonBoard={this.refreshMoonBoard}
+            updateAlertBadge={this.updateAlertBadge}
+            board={this.state.board}
+            startHold={this.state.startHold}
+            hold={this.state.hold}
+            footHold={this.state.footHold}
+            finalHold={this.state.finalHold}
+          />
         </div>
       </>
     )

@@ -6,6 +6,13 @@
   width: 100%;
   overflow: hidden;
 }
+.About-header-text-size {
+  padding-top: 8%;
+  font-size: 7vw;
+}
+.About-subheader-text-size {
+  font-size: 2.5vw;
+}
 
 .About-header .About-video {
   filter: grayscale(100%);
@@ -21,11 +28,11 @@
   -moz-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  -webkit-animation: fadein 2s;
-  -moz-animation: fadein 2s;
-  -ms-animation: fadein 2s;
-  -o-animation: fadein 2s;
-  animation: fadein 2s;
+  -webkit-animation: fadein 0.5s;
+  -moz-animation: fadein 0.5s;
+  -ms-animation: fadein 0.5s;
+  -o-animation: fadein 0.5s;
+  animation: fadein 0.5s;
   opacity: 0.75;
 }
 @keyframes fadein {
@@ -107,7 +114,7 @@
   color: white;
 }
 .About-fade-in {
-  transition: visibility 0s 2s, opacity 2s linear;
+  transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 .About-invis {
   opacity: 0;

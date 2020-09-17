@@ -6,9 +6,6 @@ import Page from "./Page"
 import "../components-css/Sign-up.css"
 
 class Signup extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     return (
       <>

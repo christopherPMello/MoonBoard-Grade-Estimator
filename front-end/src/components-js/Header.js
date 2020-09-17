@@ -28,6 +28,7 @@ class Header extends Component {
       visible,
     })
   }
+
   render() {
     return (
       <>
@@ -53,16 +54,16 @@ class Header extends Component {
                   About
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <Link onClick={scrollTopGuard} className="nav-link text-dark" to="/login">
+              {/* <li className='nav-item'>
+                <Link onClick={scrollTopGuard} className='nav-link text-dark' to='/login'>
                   Login
                 </Link>
               </li> */}
             </ul>
 
-            {/* <form className="form-inline">
-              <div className="md-form my-0">
-                <input className="form-control mr-sm-2" type="text" placeholder="Search Graded Routes" aria-label="Search" />
+            {/* <form className='form-inline'>
+              <div className='md-form my-0'>
+                <input className='form-control mr-sm-2' type='text' placeholder='Search Graded Routes' aria-label='Search' />
               </div>
             </form> */}
           </div>

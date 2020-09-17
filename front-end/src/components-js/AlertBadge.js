@@ -16,12 +16,12 @@ class AlertBadge extends Component {
     return (
       <>
         {this.props.alert && (
-          <Alert className="Alert-center" color={this.props.alertBadgeColor} isOpen={this.props.alert} toggle={this.onDismiss} fade={false}>
+          <Alert className="Alert-center About-info-text-size" color={this.props.alertBadgeColor} isOpen={this.props.alert} toggle={this.onDismiss} fade={false}>
             {this.props.alertBadgeMessage}
           </Alert>
         )}
         {!this.props.alert && (
-          <Alert className="Alert-center" color={this.props.alertBadgeColor}>
+          <Alert className="Alert-center About-submit-text-size" color={this.props.alertBadgeColor}>
             {this.props.alertBadgeMessage}
           </Alert>
         )}

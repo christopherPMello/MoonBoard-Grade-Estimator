@@ -9,7 +9,7 @@ class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      visible: true,
+      visible: false,
     }
   }
 
@@ -28,7 +28,7 @@ class Home extends Component {
           <Page title="Home">
             <VizSensor
               onChange={() => {
-                this.setState((prev) => ({ visible: false }))
+                this.setState((prev) => ({ visible: !prev.visible }))
               }}
               partialVisibility={true}
               minTopValue={100}

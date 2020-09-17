@@ -2,11 +2,17 @@ import React, { Component } from "react"
 import { Button } from "reactstrap"
 import Axios from "axios"
 
-import { scrollTopGuard } from "./Footer"
+import { smoothScroll } from "./Footer"
 
 import "../components-css/Submit.css"
 
 class Submit extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      submitted: false,
+    }
+  }
   getGrade = async () => {
     let info = {}
     let route = {}
@@ -17,8 +23,7 @@ class Submit extends Component {
       info.alert = false
       info.alertBadgeColor = "success"
       let res = await Axios.post("http://127.0.0.1:5000/grade", route)
-      info.alertBadgeMessage = "Estimated Grade: " + (await res.data)
-      console.log(res)
+      info.alertBadgeMessage = "Estimated grade: " + (await res.data.fgrade) + " | " + (await res.data.vgrade)
     } catch (e) {
       info.alert = true
       info.alertBadgeColor = "warning"
@@ -28,6 +33,15 @@ class Submit extends Component {
     return info
   }
   boardValidator = async () => {
+    if (this.state.submitted) {
+      // Refresh board
+      this.props.refreshMoonBoard()
+      smoothScroll(600)
+      this.setState((prev) => ({ submitted: !prev.submitted }))
+      return
+    }
+
+    let gradeRoute = false
     let info = {
       alert: true,
       alertBadgeColor: "warning",
@@ -42,21 +56,25 @@ class Submit extends Component {
       info.alertBadgeMessage = "At least one starting hold is requred "
     } else {
       // Valid request
-      info.alertBadgeMessage = "Estimating Grade ..."
+      info.alertBadgeMessage = "Estimating grade ..."
       info.alert = false
       info.alertBadgeColor = "success"
+      gradeRoute = true
     }
-    scrollTopGuard(600)
+    smoothScroll(600)
     // Update temporary result
     this.props.updateAlertBadge(info)
     // Update final result
-    this.props.updateAlertBadge(await this.getGrade())
+    if (gradeRoute === true) {
+      this.setState((prev) => ({ submitted: !prev.submitted }))
+      this.props.updateAlertBadge(await this.getGrade())
+    }
   }
   render() {
     return (
       <div className="Submit-center">
         <Button onClick={this.boardValidator} type="button Submit-button-bkg" className="btn btn-secondary btn-sm">
-          Estimate Grade
+          {this.state.submitted ? <div>Grade Another Route</div> : <div>Estimate Grade</div>}
         </Button>
       </div>
     )

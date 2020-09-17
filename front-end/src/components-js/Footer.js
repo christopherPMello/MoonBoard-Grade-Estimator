@@ -2,6 +2,10 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 const scrollTopGuard = (topPos) => {
+  window.scrollTo(0, 0)
+}
+
+const smoothScroll = (topPos) => {
   try {
     window.scroll({
       top: topPos !== undefined ? topPos : 0,
@@ -10,7 +14,7 @@ const scrollTopGuard = (topPos) => {
     })
   } catch (error) {
     // fallback for older browsers
-    window.scrollTo(0, 0)
+    window.scrollTo(0, topPos !== undefined ? topPos : 0)
   }
 }
 
@@ -25,8 +29,8 @@ const Footer = (props) => {
         <Link onClick={scrollTopGuard} className="mx-1 text-light" to="/about">
           About
         </Link>{" "}
-        {/* |{" "}
-        <Link onClick={scrollTopGuard} className="mx-1 text-light" to="/login">
+        {/* |{' '}
+        <Link onClick={scrollTopGuard} className='mx-1 text-light' to='/login'>
           Login
         </Link> */}
       </p>
@@ -40,4 +44,4 @@ const Footer = (props) => {
 }
 
 export default Footer
-export { scrollTopGuard }
+export { scrollTopGuard, smoothScroll }

@@ -10,6 +10,7 @@ const Page = (props) => {
     })
     document.title = props.title ? `${props.title} | MoonBoard Grade Estimator` : "MGE | MoonBoard Grade Estimator"
   }, [])
+
   return (
     <>
       {!props.noContainer && (

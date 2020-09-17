@@ -16,9 +16,10 @@ class About extends Component {
       colorVisible: true,
       rulesVisible: true,
       estimateVisible: true,
-      aboutVisible: false,
+      aboutVisible: true,
     }
     window.addEventListener("resize", this.handleResize)
+    window.scrollTo(0, 0)
   }
 
   componentWillUnmount() {
@@ -41,8 +42,8 @@ class About extends Component {
             <div className="About-container container h-100">
               <div className="d-flex h-100 text-center align-items-center">
                 <div className="w-100 text-white">
-                  <h1 className="display-3">MoonBoard Grade Estimator</h1>
-                  <p className="lead mb-0">Using ML to better understand the complex world of grading</p>
+                  <h1 className="display-3 About-header-text-size">MoonBoard Grade Estimator</h1>
+                  <p className="lead mb-0 About-subheader-text-size">Using machine learning to better understand the complex world of grading</p>
                 </div>
               </div>
             </div>
@@ -104,10 +105,13 @@ class About extends Component {
                           At least 1 <em className="About-definition-help">finishing hold</em> is required.
                         </p>
                       </div>
-                      <div className="ui-tooltip About-card-text" title="A hand hold is defined as a non-foot only hold above the 6th row and below the 18th row">
+                      <div className="ui-tooltip About-card-text" title="A hand hold is defined as a non-foot hold above the 6th row">
                         <p className="About-card-text">
                           At least 1 <em className="About-definition-help">hand hold</em> is required.
                         </p>
+                      </div>
+                      <div className="ui-tooltip About-card-text">
+                        <p className="About-card-text">A maximum of 14 holds is allowed.</p>
                       </div>
                       <div className="About-card-text">
                         <a className="btn btn-dark btn-sm" href="https://www.moonboard.com/moonboard-rules">
@@ -132,14 +136,22 @@ class About extends Component {
                 <div>
                   <div className="row">
                     <div className="col About-hand-col">
-                      <h1 className="About-hand">Estimation Process</h1>
+                      <h1 className="About-hand">Estimation</h1>
                       <i className="col About-hand fas fa-brain fa-7x"></i>
                     </div>
                   </div>
 
                   <div className="About-card card">
-                    <div className="card-body About-card-text">
-                      <p className="About-card-text">The estimation process is determined by a convolutional nueral netork details..........</p>
+                    <div className="card-body">
+                      <div className="card-body About-card-text">
+                        <p className="About-card-text">The estimation process is determined by a 1d convolutional neural network.</p>
+                        <p>More details can be found on my github.</p>
+                      </div>
+                      <div className="About-card-text">
+                        <a className="btn btn-dark btn-sm" href="https://github.com/christopherPMello">
+                          Github
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -158,14 +170,16 @@ class About extends Component {
                 <div>
                   <div className="row">
                     <div className="col About-hand-col">
-                      <h1 className="About-hand">Estimation Process</h1>
+                      <h1 className="About-hand">About</h1>
                       <i className="col About-hand far fa-grin fa-7x"></i>
                     </div>
                   </div>
 
                   <div className="About-card card">
                     <div className="card-body About-card-text">
-                      <p className="About-card-text">The estimation process is determined by a convolutional nueral netork details..........</p>
+                      <p className="About-card-text">Like many others during COVID, I built a MoonBoard. Also like many others, I found grading routes alone to be a difficult process. So, I created this MoonBoard route grader.</p>
+                      <p className="About-card-text">Because grading is inherently subjective, accurately determining a grade algorithmically is somewhat… well… Impossible; however, I believe the process is fruitful nonetheless.</p>
+                      <p className="About-card-text">I hope you have as much fun using this route grader as I had making it.</p>
                     </div>
                   </div>
                 </div>
