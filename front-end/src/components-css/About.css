@@ -8,12 +8,20 @@
 }
 .About-header-text-size {
   padding-top: 8%;
-  font-size: 7vw;
+  font-size: 6vw;
 }
 .About-subheader-text-size {
   font-size: 2.5vw;
 }
-
+.About-subheader-text-size-small {
+  font-size: 3.5vw;
+}
+.About-text-ajdsize-small {
+  font-size: 15vw;
+}
+.About-icon-adjsize-small {
+  font-size: 40vw;
+}
 .About-header .About-video {
   filter: grayscale(100%);
   position: absolute;
@@ -43,7 +51,6 @@
     opacity: 0.75;
   }
 }
-
 .About-header .About-container {
   position: relative;
   z-index: 2;

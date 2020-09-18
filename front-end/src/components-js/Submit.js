@@ -22,7 +22,7 @@ class Submit extends Component {
     try {
       info.alert = false
       info.alertBadgeColor = "success"
-      let res = await Axios.post("http://127.0.0.1:5000/grade", route)
+      let res = await Axios.post("https://mb-grade-estimator.herokuapp.com/grade", route)
       info.alertBadgeMessage = "Estimated grade: " + (await res.data.fgrade) + " | " + (await res.data.vgrade)
     } catch (e) {
       info.alert = true
@@ -36,7 +36,7 @@ class Submit extends Component {
     if (this.state.submitted) {
       // Refresh board
       this.props.refreshMoonBoard()
-      smoothScroll(600)
+      smoothScroll(550)
       this.setState((prev) => ({ submitted: !prev.submitted }))
       return
     }
@@ -61,7 +61,7 @@ class Submit extends Component {
       info.alertBadgeColor = "success"
       gradeRoute = true
     }
-    smoothScroll(600)
+    smoothScroll(550)
     // Update temporary result
     this.props.updateAlertBadge(info)
     // Update final result

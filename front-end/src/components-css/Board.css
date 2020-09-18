@@ -1,3 +1,7 @@
 .Board-center {
   margin-bottom: 12px;
+  margin: 0 auto;
+}
+.board-center-me {
+  margin: 0 auto;
 }

@@ -1,15 +1,11 @@
 import numpy as np
-import pandas as pd
-import os, json 
 from flask import Flask, jsonify, request
-from flask_restful import Api, Resource
+from flask_restful import Api
 from flask_cors import CORS
 import torch
-from torch import nn, optim
+from torch import nn
 import torch.nn.functional as F
-import torchvision.transforms as transforms
 import torch.utils.data as data
-from torch.autograd import Variable
 
 # Network definition
 class LinNet(nn.Module):
@@ -68,15 +64,21 @@ class Dataset(data.Dataset):
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Load NN
-PATH = '../cnn.pt'
-model = torch.load(PATH)
+PATH = '../cnnDict.pt'
+model = ConvNet()
+model.load_state_dict(torch.load(PATH))
 model.eval()
 
 app = Flask(__name__)
 
-# CORS disabled for test
+# CORS disabled
 cors = CORS(app)
 api = Api(app)
+
+# Set-up function
+@app.route('/')
+def setUp():
+    return 'hi'
 
 # Route grader
 @app.route('/grade', methods=['POST'])

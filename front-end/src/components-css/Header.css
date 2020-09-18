@@ -1,3 +1,6 @@
 .navbar-light .navbar-nav .nav-link:hover {
   opacity: 0.5;
 }
+.Header-brand-text {
+  font-size: 16px;
+}

@@ -36,7 +36,7 @@ const Footer = (props) => {
       </p>
       <p className="m-0 text-light">
         <Link onClick={scrollTopGuard} to="/" className="text-light">
-          MoonBoard Route Estimator
+          MoonBoard Grade Estimator
         </Link>
       </p>
     </footer>

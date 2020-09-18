@@ -33,7 +33,7 @@ class Header extends Component {
     return (
       <>
         <nav className={this.state.visible ? "navbar navbar-expand-md fixed-top bg-light navbar-light" : "navbar navbar-expand-md fixed-top bg-light navbar-light Home-header-fade-out"}>
-          <Link onClick={scrollTopGuard} className="navbar-brand" to="/">
+          <Link onClick={scrollTopGuard} className="navbar-brand Header-brand-text" to="/">
             MoonBoard Grade Estimator
           </Link>
 

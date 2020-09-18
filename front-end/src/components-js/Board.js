@@ -32,6 +32,7 @@ class Board extends Component {
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.handleResize)
+    this.refreshMoonBoard()
   }
 
   handleResize = (e) => {
@@ -53,7 +54,7 @@ class Board extends Component {
       reloadStatus: false,
       alert: false,
       alertBadgeColor: "dark",
-      alertBadgeMessage: "Create -> Submit",
+      alertBadgeMessage: "Create a route then submit!",
       grade: null,
       showGrade: false,
     }))
@@ -135,10 +136,17 @@ class Board extends Component {
   render() {
     return (
       <>
-        <div className="mb">
-          <AlertBadge className="col-md-6" updateAlertBadge={this.updateAlertBadge} alertBadgeMessage={this.state.alertBadgeMessage} alert={this.state.alert} alertBadgeColor={this.state.alertBadgeColor} />
+        <div className="mb board-center-me">
+          <AlertBadge className="col-md-6" windowWidth={this.state.windowWidth} updateAlertBadge={this.updateAlertBadge} alertBadgeMessage={this.state.alertBadgeMessage} alert={this.state.alert} alertBadgeColor={this.state.alertBadgeColor} />
           <div className="Board-center">
-            <ImageMapper className="MoonBoard-img center col-md-6" src={moon} map={moonMap} onClick={(area) => this.circle(area)} width={this.state.windowWidth >= 850 ? this.state.windowWidth * 0.5 : this.state.windowWidth * 0.85} imgWidth={650} />
+            <ImageMapper
+              className="MoonBoard-img center col-md-6 board-center-me"
+              src={moon}
+              map={moonMap}
+              onClick={(area) => this.circle(area)}
+              width={this.state.windowWidth >= 850 ? this.state.windowWidth * 0.5 : this.state.windowWidth * 0.85}
+              imgWidth={650}
+            />
           </div>
           <Submit
             className="col-md-6"
