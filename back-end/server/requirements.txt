@@ -1,8 +1,0 @@
-Flask
-flask_restful
-pymongo
-bcyrpt
-numpy
-tensorflow
-pytorch
-requests
