@@ -155,6 +155,3 @@ def convert_pred(route):
             12 : ('8b+', 'V14'), 13 : ('8c', 'V15')}
     
     return grades[route]
-
-if __name__ == '__main__':
-    app.run()

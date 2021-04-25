@@ -22,7 +22,13 @@ class Submit extends Component {
     try {
       info.alert = false
       info.alertBadgeColor = "success"
-      let res = await Axios.post("https://mb-grade-estimator.herokuapp.com/grade", route)
+      try {
+        // running through docker
+        let res = await Axios.post("http://localhost:5000/grade/", route)  
+      } catch (e) {
+        // running through heroku
+        let res = await Axios.post("https://mb-grade-estimator.herokuapp.com/grade", route)
+      }
       info.alertBadgeMessage = "Estimated grade: " + (await res.data.fgrade) + " | " + (await res.data.vgrade)
     } catch (e) {
       info.alert = true
